@@ -1,0 +1,37 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "autoFixOnSave": true,
+  "rules": {
+    "member-access": false,
+    "interface-name": false,
+    "quotemark": [true, "single", "jsx-double", "avoid-escape"],
+    "semicolon": [true, "never"],
+    "one-line": [true, "check-catch", "check-finally", "check-else"],
+    "no-unused-expression": false,
+    "no-unused-variable": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "trailing-comma": true,
+    "no-console": false,
+    "no-implicit-dependencies": false,
+    "no-non-null-assertion": false,
+    "no-any": false,
+    "no-unsafe-any": false,
+    "no-shadowed-variable": false,
+    "variable-name": false,
+    "curly": false,
+    "no-empty-interface": false,
+    "max-classes-per-file": false
+  },
+  "jsRules": {
+    "prettier": true,
+    "object-literal-sort-keys": false,
+    "one-line": true,
+    "quotemark": false,
+    "semicolon": false,
+    "trailing-comma": true
+  },
+  "rulesDirectory": [],
+  "exclude": ["node_modules"]
+}

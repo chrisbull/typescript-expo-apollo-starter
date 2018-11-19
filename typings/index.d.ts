@@ -1,0 +1,2 @@
+import 'react-navigation/NavigationTestUtils'
+
