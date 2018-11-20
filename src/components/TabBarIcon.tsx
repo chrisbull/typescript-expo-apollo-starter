@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import Icon from '@expo/vector-icons'
 
 import Colors from '../constants/Colors'

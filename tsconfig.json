@@ -35,6 +35,7 @@
     "lib": ["dom", "es5", "es6", "es7", "esnext.asynciterable"],
     "module": "commonjs",
     "noEmitHelpers": true,
+    "skipLibCheck": true,
     "paths": {},
     "plugins": [
       {

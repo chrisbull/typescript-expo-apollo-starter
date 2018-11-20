@@ -12,7 +12,17 @@
     "eject": "expo eject",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "lint": "tslint src/**/*.ts"
+    "lint": "tslint src/**/*.ts",
+    "tsc": "tsc",
+    "clean": "rimraf build",
+    "build": "yarn run clean && yarn run tsc",
+    "watch": "yarn run build -w",
+    "watchAndRunAndroid": "concurrently \"yarn run watch\" \"yarn run android\"",
+    "buildRunAndroid": "yarn run build && yarn run watchAndRunAndroid ",
+    "watchAndRunIOS": "concurrently \"yarn run watch\" \"yarn run ios\"",
+    "buildRunIOS": "yarn run build && yarn run watchAndRunIOS ",
+    "watchAndStart": "concurrently \"yarn run watch\" \"yarn run start\"",
+    "buildAndStart": "yarn run build && yarn run watchAndStart "
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
@@ -29,6 +39,7 @@
     "react-apollo": "2.3.1",
     "react-dom": "^16.6.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.1.tar.gz",
+    "react-native-screens": "^1.0.0-alpha.16",
     "react-navigation": "3.0.0",
     "tslib": "1.9.3"
   },
