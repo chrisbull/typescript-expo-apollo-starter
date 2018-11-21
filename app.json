@@ -1,11 +1,11 @@
 {
   "_WARNING_": "------- WARNING THIS FILE IS AUTO GENERATED FROM generate-app-config.ts DO NOT EDIT THIS -------",
   "expo": {
-    "name": "TypeScript Expo Apollo Starter Production",
+    "name": "TypeScript Expo Apollo Starter",
     "description": "A very interesting project.",
     "slug": "typescript-expo-apollo-starter",
     "privacy": "public",
-    "sdkVersion": "31.0.1",
+    "sdkVersion": "31.0.0",
     "platforms": [
       "ios",
       "android"
@@ -24,7 +24,7 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "facebookDisplayName": "TypeScript Expo Apollo Starter Production",
+    "facebookDisplayName": "TypeScript Expo Apollo Starter",
     "facebookAppId": "2309312382473413",
     "facebookScheme": "fb2309312382473413",
     "ios": {

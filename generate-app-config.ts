@@ -13,7 +13,7 @@ const AppConfig = {
 
     privacy: 'public',
 
-    sdkVersion: '31.0.1',
+    sdkVersion: '31.0.0',
 
     platforms: ['ios', 'android'],
 
