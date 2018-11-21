@@ -1,0 +1,15 @@
+export default {
+  APP_NAME: 'TypeScript Expo Apollo Starter',
+  APP_SLUG: 'typescript-expo-apollo-starter',
+  ANDROID_BUNDLE_ID: 'host.exp.exponent',
+  IOS_BUNDLE_ID: 'host.exp.Exponent',
+  // GOOGLE_SIGNIN_ANDROID_CLIENT_ID: '',
+  // GOOGLE_SIGNIN_ANDROID_CLIENT_SECRET: '',
+  // GOOGLE_SIGNIN_ANDROID_CERTIFICATE_HASH: '',
+  // GOOGLE_SIGNIN_IOS_CLIENT_ID: '',
+  // GOOGLE_SIGNIN_IOS_REVERSED_CLIENT_ID: '',
+  // GOOGLE_MAPS_ANDROID_API_KEY: '',
+  // GOOGLE_MAPS_IOS_API_KEY: '',
+  // FACEBOOK_APP_ID: '',
+  // FACEBOOK_APP_SCHEME: '',
+}
