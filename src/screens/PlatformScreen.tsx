@@ -3,12 +3,12 @@ import { Text } from 'react-native'
 import { Component } from 'react'
 import { Constants } from 'expo'
 
-export class PlatformScreen extends Component {
-  public static navigationOptions = {
+export default class PlatformScreen extends Component {
+  static navigationOptions = {
     title: 'platform',
   }
 
-  public render() {
+  render() {
     return <Text>{JSON.stringify(Constants.platform, undefined, 2)}</Text>
   }
 }

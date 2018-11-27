@@ -4,12 +4,12 @@ import { Component } from 'react'
 import { Constants } from 'expo'
 import { ScrollView } from 'react-native'
 
-export class ManifestScreen extends Component {
-  public static navigationOptions = {
+export default class ManifestScreen extends Component {
+  static navigationOptions = {
     title: 'manifest',
   }
 
-  public render() {
+  render() {
     return (
       <ScrollView>
         <Text>{JSON.stringify(Constants.manifest, undefined, 2)}</Text>

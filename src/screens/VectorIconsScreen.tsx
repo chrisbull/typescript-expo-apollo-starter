@@ -1,22 +1,21 @@
 import * as React from 'react'
 import { Component } from 'react'
-// tslint:disable-next-line:no-implicit-dependencies
 import { Ionicons } from '@expo/vector-icons'
 import { View } from 'react-native'
 
-export class VectorIconsScreen extends Component {
-  public static navigationOptions = {
-    title: 'Vector Icons'
+export default class VectorIconsScreen extends Component {
+  static navigationOptions = {
+    title: 'Vector Icons',
   }
 
-  public render() {
+  render() {
     return (
       <View
         style={{
           alignItems: 'center',
           backgroundColor: '#fff',
           flex: 1,
-          justifyContent: 'center'
+          justifyContent: 'center',
         }}
       >
         <Ionicons
@@ -26,7 +25,7 @@ export class VectorIconsScreen extends Component {
           style={{
             textDecorationColor: 'black',
             textDecorationLine: 'underline',
-            textDecorationStyle: 'double'
+            textDecorationStyle: 'double',
           }}
         />
       </View>

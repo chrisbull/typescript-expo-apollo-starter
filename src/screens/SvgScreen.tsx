@@ -4,19 +4,19 @@ import { NavigationScreenProps } from 'react-navigation'
 import { Svg } from 'expo'
 import { View } from 'react-native'
 
-export class SvgScreen extends Component<NavigationScreenProps> {
-  public static navigationOptions = {
-    title: 'Svg'
+export default class SvgScreen extends Component<NavigationScreenProps> {
+  static navigationOptions = {
+    title: 'Svg',
   }
 
-  public render() {
+  render() {
     return (
       <View
         style={{
           alignItems: 'center',
           backgroundColor: '#fff',
           flex: 1,
-          justifyContent: 'center'
+          justifyContent: 'center',
         }}
       >
         <Svg

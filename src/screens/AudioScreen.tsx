@@ -9,8 +9,8 @@ interface State {
   soundLoaded: boolean
 }
 
-export class AudioScreen extends Component<{}, State> {
-  public static navigationOptions = {
+export default class AudioScreen extends Component<{}, State> {
+  static navigationOptions = {
     title: 'Audio',
   }
   constructor(props: {}, context?: any) {
@@ -23,7 +23,7 @@ export class AudioScreen extends Component<{}, State> {
     this.playSound()
   }
 
-  public render() {
+  render() {
     if (!this.state.soundLoaded) {
       return <Text>Loading sound...</Text>
     }

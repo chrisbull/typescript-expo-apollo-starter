@@ -1,51 +1,34 @@
 {
   "compilerOptions": {
-    // Target latest version of ECMAScript.
-    "target": "esnext",
-    // Search under node_modules for non-relative imports.
-    "moduleResolution": "node",
-    // Process & infer types from .js files.
-    "allowJs": false,
-    // Don't emit; allow Babel to transform files.
-    "noEmit": true,
-    // Enable strictest settings like strictNullChecks & noImplicitAny.
-    "strict": true,
-    // Disallow features that require cross-file information for emit.
-    "isolatedModules": false,
-    // Import non-ES modules as default imports.
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "isolatedModules": false,
     "jsx": "react-native",
-    "sourceMap": true,
-    "rootDir": "src",
-    "baseUrl": "./src",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "esnext",
     "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "importHelpers": true,
-    "alwaysStrict": true,
-    "forceConsistentCasingInFileNames": true,
-    "strictFunctionTypes": true,
-    "noFallthroughCasesInSwitch": true,
-    "strictNullChecks": true,
-    "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["dom", "es5", "es6", "es7", "esnext.asynciterable"],
-    "module": "commonjs",
+    "lib": ["es6", "es7", "esnext.asynciterable"],
     "noEmitHelpers": true,
     "skipLibCheck": true,
+    "baseUrl": ".",
     "paths": {},
     "plugins": [
       {
         "name": "@divyenduz/ts-graphql-plugin"
       }
     ],
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "typeRoots": ["./node_modules/@types"]
   },
-  "filesGlob": ["typings/index.d.ts", "src/**/*.ts", "src/**/*.tsx", "node_modules/typescript/lib/lib.es6.d.ts"],
-  "include": ["src/**/*"],
-  "exclude": ["build", "node_modules", "**/*.spec.ts"],
-  "types": ["react", "react-native"]
+  "exclude": ["node_modules"]
 }

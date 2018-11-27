@@ -11,29 +11,26 @@ interface State {
   hasHardware: boolean | undefined
 }
 
-export class LocalAuthenticationScreen extends Component<{}, State> {
+export default class LocalAuthenticationScreen extends Component<{}, State> {
   constructor(props: {}, context?: any) {
     super(props, context)
 
     this.state = {
       authenticated: false,
       authenticationError: 'n/a',
-      hasHardware: undefined
+      hasHardware: undefined,
     }
 
     this.updateState()
   }
 
-  public render() {
+  render() {
     return (
       <View>
         <Text>This device has a fingerprint or a face scanner: {this.state.hasHardware ? 'Yes' : 'No'}</Text>
         <Text>Authenticated: {this.state.authenticated ? 'Yes' : 'No'}</Text>
         <Text>Authentication error: {this.state.authenticationError}</Text>
-        <Button
-          onPress={() => this.authenticate()}
-          title="Scan"
-        />
+        <Button onPress={() => this.authenticate()} title="Scan" />
       </View>
     )
   }
@@ -43,23 +40,22 @@ export class LocalAuthenticationScreen extends Component<{}, State> {
 
     if (authenticated.success) {
       this.setState({
-        authenticationError: 'None'
+        authenticationError: 'None',
       })
-    }
-    else {
+    } else {
       this.setState({
-        authenticationError: authenticated.error
+        authenticationError: authenticated.error,
       })
     }
 
     this.setState({
-      authenticated: authenticated.success
+      authenticated: authenticated.success,
     })
   }
 
   private async updateState() {
     this.setState({
-      hasHardware: await LocalAuthentication.hasHardwareAsync()
+      hasHardware: await LocalAuthentication.hasHardwareAsync(),
     })
   }
 }

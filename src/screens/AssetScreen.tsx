@@ -9,8 +9,8 @@ interface State {
   assetsLoaded: boolean
 }
 
-export class AssetScreen extends Component<{}, State> {
-  public static navigationOptions = {
+export default class AssetScreen extends Component<{}, State> {
+  static navigationOptions = {
     title: 'Asset',
   }
   constructor(props: {}, context?: any) {
@@ -23,7 +23,7 @@ export class AssetScreen extends Component<{}, State> {
     this.loadAssets()
   }
 
-  public render() {
+  render() {
     if (!this.state.assetsLoaded) {
       return <Text>Loading assets...</Text>
     }

@@ -1,20 +1,21 @@
+/* Inspired by: https://snack.expo.io/@bacon/github */
 import * as React from 'react'
-import { Text, TouchableOpacity, View, StyleSheet, Button, ScrollView, Image } from 'react-native'
+import { Text, TouchableOpacity, View, Image, StyleSheet, ScrollView, Button } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 
-import FacebookAuth, { FacebookUserInfo } from '../services/auth/FacebookAuth'
+import GithubAuth, { GithubUserInfo } from '../services/auth/GithubAuth'
 
 interface Props {}
 
 interface State {
-  userInfo?: FacebookUserInfo
+  userInfo?: GithubUserInfo
   error?: string
   isSignedIn: boolean
 }
 
-export default class FacebookScreen extends React.Component<Props, State> {
+export default class GithubScreen extends React.Component<Props, State> {
   static navigationOptions = {
-    title: 'Facebook',
+    title: 'Github',
   }
 
   state = {
@@ -27,14 +28,14 @@ export default class FacebookScreen extends React.Component<Props, State> {
     this.attemptToRestoreAuthSync()
   }
 
-  signInWithFacebookAsync = async () => {
-    const { token, userInfo, error } = await FacebookAuth.signInAsync()
+  signInWithGithubAsync = async () => {
+    const { token, userInfo, error } = await GithubAuth.signInAsync()
     const isSignedIn = !!token
     this.setState({ isSignedIn, userInfo, error })
   }
 
   attemptToRestoreAuthSync = async () => {
-    const { token, userInfo } = await FacebookAuth.initAuth()
+    const { token, userInfo } = await GithubAuth.initAuth()
     const isSignedIn = !!token
     if (userInfo) {
       this.setState({ isSignedIn, userInfo })
@@ -42,7 +43,7 @@ export default class FacebookScreen extends React.Component<Props, State> {
   }
 
   signOutAsync = async () => {
-    await FacebookAuth.signOutAsync()
+    await GithubAuth.signOutAsync()
     this.setState({
       isSignedIn: false,
       userInfo: undefined,
@@ -68,7 +69,7 @@ export default class FacebookScreen extends React.Component<Props, State> {
       return (
         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flex: 1 }}>
           <View style={styles.container}>
-            <Image source={{ uri: userInfo.picture.data.url }} style={styles.image} />
+            <Image source={{ uri: userInfo.avatar_url }} style={styles.image} />
             <Text style={styles.paragraph}>Welcome {userInfo.name}</Text>
             <Button title="Sign Out" onPress={this.signOutAsync} />
           </View>
@@ -78,11 +79,10 @@ export default class FacebookScreen extends React.Component<Props, State> {
 
     return (
       <View style={styles.container}>
-        <Text>{this.state.error}</Text>
-        <TouchableOpacity onPress={this.signInWithFacebookAsync}>
+        <TouchableOpacity onPress={() => this.signInWithGithubAsync()}>
           <View style={styles.buttonContainer}>
-            <FontAwesome name="facebook-official" size={28} style={{ color: '#fff' }} />
-            <Text style={styles.buttonText}>Log in With Facebook</Text>
+            <FontAwesome name="github" size={28} style={{ color: '#fff' }} />
+            <Text style={styles.buttonText}>Log in With Github</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'center',
-    backgroundColor: '#4267b2',
+    backgroundColor: '#efefef',
     borderRadius: 5,
     flexDirection: 'row',
     height: 40,

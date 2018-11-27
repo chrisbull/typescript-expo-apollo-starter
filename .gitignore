@@ -17,3 +17,8 @@ yarn-error.log*
 app.json
 
 config.ts
+
+**/__snapshots__/**/*
+
+
+.vscode

@@ -1,12 +1,11 @@
-import * as React from 'react'
-import { Button } from 'react-native'
-import { Component } from 'react'
+import React, { Component } from 'react'
+import { FlatList } from 'react-native'
 import { NavigationScreenProps } from 'react-navigation'
-import { ScrollView } from 'react-native'
+import { ListItem } from 'react-native-elements'
 
 class DestinationAndTitle {
-  public destination: string
-  public title: string
+  destination: string
+  title: string
 
   constructor(destination: string, title?: string) {
     this.destination = destination
@@ -20,46 +19,54 @@ class DestinationAndTitle {
 }
 
 export default class MainScreen extends Component<NavigationScreenProps> {
-  public static navigationOptions = {
+  static navigationOptions = {
     title: 'Home',
   }
+
+  state = { selected: [] }
 
   private destinationAndTitlePairs: DestinationAndTitle[] = [
     new DestinationAndTitle('Accelerometer'),
     new DestinationAndTitle('Amplitude'),
     new DestinationAndTitle('Asset'),
     new DestinationAndTitle('Audio'),
-    new DestinationAndTitle('BlurView1', 'BlurView 1'),
-    new DestinationAndTitle('BlurView2', 'BlurView 2'),
+    new DestinationAndTitle('BlurView1'),
+    new DestinationAndTitle('BlurView2'),
     new DestinationAndTitle('Brightness'),
     new DestinationAndTitle('Camera'),
     new DestinationAndTitle('Constants'),
     new DestinationAndTitle('Facebook'),
+    new DestinationAndTitle('FirebaseAuthTest'),
     new DestinationAndTitle('Font'),
+    new DestinationAndTitle('Github'),
+    new DestinationAndTitle('Google'),
     new DestinationAndTitle('Gyroscope'),
+    new DestinationAndTitle('Home'),
     new DestinationAndTitle('LinearGradient'),
-    new DestinationAndTitle('LocalAuthentication', 'Local Authentication'),
+    new DestinationAndTitle('Links'),
+    new DestinationAndTitle('LocalAuthentication'),
+    new DestinationAndTitle('Main'),
+    new DestinationAndTitle('Manifest'),
     new DestinationAndTitle('MapView'),
+    new DestinationAndTitle('Platform'),
+    new DestinationAndTitle('Posts'),
+    new DestinationAndTitle('Settings'),
     new DestinationAndTitle('Svg'),
-    new DestinationAndTitle('VectorIcons', 'Vector Icons'),
+    new DestinationAndTitle('SystemFonts'),
+    new DestinationAndTitle('VectorIcons'),
   ]
 
-  public render() {
+  _keyExtractor = item => `key-${item.title}`
+
+  _onPressItem = (destination: string) => {
+    this.props.navigation.navigate(destination)
+  }
+
+  renderRow = ({ item }) => <ListItem onPress={() => this._onPressItem(item.destination)} title={item.title} />
+
+  render() {
     return (
-      <ScrollView
-        style={{
-          backgroundColor: '#fff',
-          flex: 1,
-        }}
-      >
-        {this.destinationAndTitlePairs.map(destinationAndTitle => (
-          <Button
-            key={destinationAndTitle.destination}
-            onPress={() => this.props.navigation.navigate(destinationAndTitle.destination)}
-            title={destinationAndTitle.title}
-          />
-        ))}
-      </ScrollView>
+      <FlatList data={this.destinationAndTitlePairs} renderItem={this.renderRow} keyExtractor={this._keyExtractor} />
     )
   }
 }

@@ -4,12 +4,12 @@ import { Component } from 'react'
 import { Constants } from 'expo'
 import { ScrollView } from 'react-native'
 
-export class SystemFontsScreen extends Component {
-  public static navigationOptions = {
+export default class SystemFontsScreen extends Component {
+  static navigationOptions = {
     title: 'systemFonts',
   }
 
-  public render() {
+  render() {
     return (
       <ScrollView>
         {Constants.systemFonts.map((systemFont, index) => (

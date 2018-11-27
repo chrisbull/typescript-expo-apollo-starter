@@ -13,8 +13,8 @@ interface State {
   accelerometerData: Accelerometer.AccelerometerObject
 }
 
-export class AccelerometerScreen extends Component<NavigationScreenProps, State> {
-  public static navigationOptions = {
+export default class AccelerometerScreen extends Component<NavigationScreenProps, State> {
+  static navigationOptions = {
     title: 'Accelerometer',
   }
 
@@ -39,15 +39,15 @@ export class AccelerometerScreen extends Component<NavigationScreenProps, State>
     }
   }
 
-  public componentDidMount() {
+  componentDidMount() {
     this.toggleSubscription()
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     this.unsubscribe()
   }
 
-  public render() {
+  render() {
     const x = AccelerometerScreen.roundToTwoDecimals(this.state.accelerometerData.x)
     const y = AccelerometerScreen.roundToTwoDecimals(this.state.accelerometerData.y)
     const z = AccelerometerScreen.roundToTwoDecimals(this.state.accelerometerData.z)

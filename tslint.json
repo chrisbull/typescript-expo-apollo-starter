@@ -22,7 +22,8 @@
     "variable-name": false,
     "curly": false,
     "no-empty-interface": false,
-    "max-classes-per-file": false
+    "max-classes-per-file": false,
+    "no-empty": false
   },
   "jsRules": {
     "prettier": true,

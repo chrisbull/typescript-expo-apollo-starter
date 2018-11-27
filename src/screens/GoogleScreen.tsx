@@ -1,20 +1,20 @@
 import * as React from 'react'
-import { Text, TouchableOpacity, View, StyleSheet, Button, ScrollView, Image } from 'react-native'
+import { Text, TouchableOpacity, View, Button, StyleSheet, ScrollView, Image } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 
-import FacebookAuth, { FacebookUserInfo } from '../services/auth/FacebookAuth'
+import GoogleAuth, { GoogleUserInfo } from '../services/auth/GoogleAuth'
 
 interface Props {}
 
 interface State {
-  userInfo?: FacebookUserInfo
+  userInfo?: GoogleUserInfo
   error?: string
   isSignedIn: boolean
 }
 
-export default class FacebookScreen extends React.Component<Props, State> {
+export default class GoogleScreen extends React.Component<Props, State> {
   static navigationOptions = {
-    title: 'Facebook',
+    title: 'Google',
   }
 
   state = {
@@ -27,14 +27,14 @@ export default class FacebookScreen extends React.Component<Props, State> {
     this.attemptToRestoreAuthSync()
   }
 
-  signInWithFacebookAsync = async () => {
-    const { token, userInfo, error } = await FacebookAuth.signInAsync()
+  signInWithGoogleAsync = async () => {
+    const { token, userInfo, error } = await GoogleAuth.signInAsync()
     const isSignedIn = !!token
     this.setState({ isSignedIn, userInfo, error })
   }
 
   attemptToRestoreAuthSync = async () => {
-    const { token, userInfo } = await FacebookAuth.initAuth()
+    const { token, userInfo } = await GoogleAuth.initAuth()
     const isSignedIn = !!token
     if (userInfo) {
       this.setState({ isSignedIn, userInfo })
@@ -42,7 +42,7 @@ export default class FacebookScreen extends React.Component<Props, State> {
   }
 
   signOutAsync = async () => {
-    await FacebookAuth.signOutAsync()
+    await GoogleAuth.signOutAsync()
     this.setState({
       isSignedIn: false,
       userInfo: undefined,
@@ -52,6 +52,8 @@ export default class FacebookScreen extends React.Component<Props, State> {
 
   render() {
     const { isSignedIn, userInfo } = this.state
+
+    console.log(userInfo)
 
     if (isSignedIn) {
       if (!userInfo) {
@@ -63,13 +65,11 @@ export default class FacebookScreen extends React.Component<Props, State> {
         )
       }
 
-      console.log(userInfo)
-
       return (
         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flex: 1 }}>
           <View style={styles.container}>
-            <Image source={{ uri: userInfo.picture.data.url }} style={styles.image} />
-            <Text style={styles.paragraph}>Welcome {userInfo.name}</Text>
+            <Image source={{ uri: userInfo.photoUrl }} style={styles.image} />
+            <Text style={styles.paragraph}>Welcome {userInfo.givenName}</Text>
             <Button title="Sign Out" onPress={this.signOutAsync} />
           </View>
         </ScrollView>
@@ -79,10 +79,10 @@ export default class FacebookScreen extends React.Component<Props, State> {
     return (
       <View style={styles.container}>
         <Text>{this.state.error}</Text>
-        <TouchableOpacity onPress={this.signInWithFacebookAsync}>
+        <TouchableOpacity onPress={this.signInWithGoogleAsync}>
           <View style={styles.buttonContainer}>
-            <FontAwesome name="facebook-official" size={28} style={{ color: '#fff' }} />
-            <Text style={styles.buttonText}>Log in With Facebook</Text>
+            <FontAwesome name="google" size={28} style={{ color: '#fff' }} />
+            <Text style={styles.buttonText}>Log in With Google</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'center',
-    backgroundColor: '#4267b2',
+    backgroundColor: '#d3d9e3',
     borderRadius: 5,
     flexDirection: 'row',
     height: 40,
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     width: 250,
   },
   buttonText: {
-    color: '#fff',
+    color: '#222',
     flexGrow: 1,
     fontSize: 20,
     fontWeight: '500',

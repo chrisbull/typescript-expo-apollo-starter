@@ -9,8 +9,8 @@ interface State {
   webViewUserAgent: string | undefined
 }
 
-export class ConstantsScreen extends Component<NavigationScreenProps, State> {
-  public static navigationOptions = {
+export default class ConstantsScreen extends Component<NavigationScreenProps, State> {
+  static navigationOptions = {
     title: 'Constants',
   }
 
@@ -24,7 +24,7 @@ export class ConstantsScreen extends Component<NavigationScreenProps, State> {
     this.updateWebViewUserAgent()
   }
 
-  public render() {
+  render() {
     const navigate = this.props.navigation.navigate
 
     return (

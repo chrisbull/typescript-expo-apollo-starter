@@ -13,11 +13,11 @@ interface IState {
 }
 
 class MyTextInput extends React.Component<IProps, IState> {
-  public state = {
+  state = {
     text: '',
   }
 
-  public render() {
+  render() {
     return (
       <TextInput
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}

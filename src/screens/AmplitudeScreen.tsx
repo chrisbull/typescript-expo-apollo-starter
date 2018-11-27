@@ -4,9 +4,8 @@ import { Component } from 'react'
 import { Text } from 'react-native'
 import { View } from 'react-native'
 
-export class AmplitudeScreen extends Component {
-
-  public static navigationOptions = {
+export default class AmplitudeScreen extends Component {
+  static navigationOptions = {
     title: 'Amplitude',
   }
   constructor(props: {}, context?: any) {
@@ -19,7 +18,7 @@ export class AmplitudeScreen extends Component {
     })
   }
 
-  public render() {
+  render() {
     Amplitude.logEventWithProperties('OPEN_SCREEN', {
       screenName: 'AmplitudeScreen',
     })

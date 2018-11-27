@@ -14,7 +14,7 @@ interface State {
   hasPermissionToCamera: boolean | undefined
 }
 
-export class CameraScreen extends Component<Props, State> {
+export default class CameraScreen extends Component<Props, State> {
   constructor(props, context) {
     super(props, context)
 
@@ -38,7 +38,7 @@ export class CameraScreen extends Component<Props, State> {
     })
   }
 
-  public render() {
+  render() {
     if (this.state.hasPermissionToCamera === undefined) {
       return <Text>Getting permission to access the camera.</Text>
     }

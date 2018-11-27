@@ -12,21 +12,17 @@ interface State {
   gyroscopeData: Gyroscope.GyroscopeObject
 }
 
-export class GyroscopeScreen extends Component<{}, State> {
-  constructor(props: {}, context?: any) {
-    super(props, context)
-
-    this.state = {
-      gyroscopeData: {
-        x: 0,
-        y: 0,
-        z: 0
-      }
-    }
+export default class GyroscopeScreen extends Component<{}, State> {
+  static navigationOptions = {
+    title: 'Gyroscope',
   }
 
-  public static navigationOptions = {
-    title: 'Gyroscope'
+  private static round(n: number | undefined) {
+    if (!n) {
+      return 0
+    }
+
+    return Math.floor(n * 100) / 100
   }
 
   private subscription: EventSubscription | undefined
@@ -36,35 +32,46 @@ export class GyroscopeScreen extends Component<{}, State> {
     backgroundColor: '#eee',
     flex: 1,
     justifyContent: 'center',
-    padding: 10
+    padding: 10,
   }
 
   private buttonContainerStyle: ViewStyle = {
     alignItems: 'stretch',
     flexDirection: 'row',
-    marginTop: 15
+    marginTop: 15,
   }
 
   private middleButtonStyle: ViewStyle = {
     borderColor: '#ccc',
     borderLeftWidth: 1,
-    borderRightWidth: 1
+    borderRightWidth: 1,
   }
 
   private sensorStyle: ViewStyle = {
     marginTop: 15,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
+  }
+  constructor(props: {}, context?: any) {
+    super(props, context)
+
+    this.state = {
+      gyroscopeData: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+    }
   }
 
-  public componentDidMount() {
+  componentDidMount() {
     this.toggleSubscription()
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     this.unsubscribe()
   }
 
-  public render() {
+  render() {
     const x = GyroscopeScreen.round(this.state.gyroscopeData.x)
     const y = GyroscopeScreen.round(this.state.gyroscopeData.y)
     const z = GyroscopeScreen.round(this.state.gyroscopeData.z)
@@ -74,7 +81,7 @@ export class GyroscopeScreen extends Component<{}, State> {
         <Text>Gyroscope:</Text>
         <Text
           style={{
-            fontSize: 20
+            fontSize: 20,
           }}
         >
           x: {x} y: {y} z: {z}
@@ -84,7 +91,10 @@ export class GyroscopeScreen extends Component<{}, State> {
           <TouchableOpacity onPress={() => this.toggleSubscription()} style={this.buttonStyle}>
             <Text>Pause</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.useLongUpdateInterval()} style={[this.buttonStyle, this.middleButtonStyle]}>
+          <TouchableOpacity
+            onPress={() => this.useLongUpdateInterval()}
+            style={[this.buttonStyle, this.middleButtonStyle]}
+          >
             <Text>Slow</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.useShortUpdateInterval()} style={this.buttonStyle}>
@@ -98,8 +108,7 @@ export class GyroscopeScreen extends Component<{}, State> {
   private toggleSubscription() {
     if (this.subscription === undefined) {
       this.subscribe()
-    }
-    else {
+    } else {
       this.unsubscribe()
     }
   }
@@ -114,7 +123,7 @@ export class GyroscopeScreen extends Component<{}, State> {
   }
 
   private subscribe() {
-    this.subscription = Gyroscope.addListener((result) => {
+    this.subscription = Gyroscope.addListener(result => {
       this.setState({ gyroscopeData: result })
     })
   }
@@ -125,13 +134,5 @@ export class GyroscopeScreen extends Component<{}, State> {
     }
 
     this.subscription = undefined
-  }
-
-  private static round(n: number | undefined) {
-    if (!n) {
-      return 0
-    }
-
-    return Math.floor(n * 100) / 100
   }
 }

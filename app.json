@@ -1,15 +1,11 @@
 {
-  "_WARNING_": "------- WARNING THIS FILE IS AUTO GENERATED FROM generate-app-config.ts DO NOT EDIT THIS -------",
   "expo": {
     "name": "TypeScript Expo Apollo Starter",
     "description": "A very interesting project.",
     "slug": "typescript-expo-apollo-starter",
     "privacy": "public",
     "sdkVersion": "31.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -21,59 +17,35 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
+
     "facebookDisplayName": "TypeScript Expo Apollo Starter",
     "facebookAppId": "2309312382473413",
     "facebookScheme": "fb2309312382473413",
+
     "ios": {
-      "bundleIdentifier": "host.exp.Exponent",
-      "buildNumber": "1",
-      "config": {
-        "googleMapsApiKey": "AIzaSyAVyZOJdEx-MlNqxGJ-SqhXLtOohXruFyM",
-        "googleSignIn": "839403704843-dkc3snqa9pbr7oflpfrdnf8a581a7650.apps.googleusercontent.com",
-        "reservedClientId": "com.googleusercontent.apps.839403704843-dkc3snqa9pbr7oflpfrdnf8a581a7650"
+      "bundleIdentifier": "com.lanespotter.lanespotter",
+      "buildNumber": "3.0.0",
+      "appStoreUrl": "https://itunes.apple.com/us/app/lanespotter/id1203780985",
+      "infoPlist": {
+        "NSAppleMusicUsageDescription": "Used to connect you to your music while riding, without having to leave the app.",
+        "NSCameraUsageDescription": "Used to update your profile picture and provide pictures of your activities.",
+        "NSContactsUsageDescription": "Used to connect you with your friends and family or to allow you to invite them to join.",
+        "NSHealthClinicalHealthRecordsShareUsageDescription": "Used to help you keep track of your health benefits while riding.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Used for mapping bike routes, current location features, and search nearby places.",
+        "NSLocationAlwaysUsageDescription": "Used for mapping bike routes, current location features, and search nearby places.",
+        "NSLocationUsageDescription": "Used for mapping bike routes, current location features, and search nearby places.",
+        "NSLocationWhenInUseUsageDescription": "Used for mapping bike routes, current location features, and search nearby places.",
+        "NSMicrophoneUsageDescription": "Used to command siri to run features like starting a ride.",
+        "NSMotionUsageDescription": "Used to give you real time data about your ride and for visualization data for after.",
+        "NSPhotoLibraryUsageDescription": "Used to allow you access to your personal photos library, to share or view images taken while exploring."
       },
-      "splash": {}
-    },
-    "android": {
-      "package": "host.exp.exponent",
-      "versionCode": 1,
-      "permissions": [
-        "ACCESS_COARSE_LOCATION",
-        "ACCESS_FINE_LOCATION",
-        "CAMERA",
-        "MANAGE_DOCUMENTS",
-        "READ_CONTACTS",
-        "READ_CALENDAR",
-        "WRITE_CALENDAR",
-        "READ_EXTERNAL_STORAGE",
-        "READ_PHONE_STATE",
-        "RECORD_AUDIO",
-        "USE_FINGERPRINT",
-        "VIBRATE",
-        "WAKE_LOCK",
-        "WRITE_EXTERNAL_STORAGE",
-        "com.anddoes.launcher.permission.UPDATE_COUNT",
-        "com.android.launcher.permission.INSTALL_SHORTCUT",
-        "com.google.android.c2dm.permission.RECEIVE",
-        "com.google.android.gms.permission.ACTIVITY_RECOGNITION",
-        "com.google.android.providers.gsf.permission.READ_GSERVICES",
-        "com.htc.launcher.permission.READ_SETTINGS",
-        "com.htc.launcher.permission.UPDATE_SHORTCUT",
-        "com.majeur.launcher.permission.UPDATE_BADGE",
-        "com.sec.android.provider.badge.permission.READ",
-        "com.sec.android.provider.badge.permission.WRITE",
-        "com.sonyericsson.home.permission.BROADCAST_BADGE"
-      ],
+      "associatedDomains": ["lanespotter.bike", "applinks:g9b98.app.goo.gl"],
+      "usesIcloudStorage": false,
       "config": {
-        "googleMaps": {
-          "apiKey": "AIzaSyAZpjiaiQ4J08xHw71278ulfTBocRp4mZY"
-        },
+        "usesNonExemptEncryption": false,
         "googleSignIn": {
-          "apiKey": "839403704843-orr3nbeo8vmf1lfrcsdtqaak46ud4bch.apps.googleusercontent.com",
-          "certificateHash": "C5A1B474AE1FB08A7D2F223D19DE8FD37A02DD33"
+          "reservedClientId": "com.googleusercontent.apps.515386943347-ejlu1oef2t4fl035qs2uru2408v4jabe"
         }
       }
     }

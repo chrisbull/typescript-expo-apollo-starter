@@ -3,12 +3,12 @@ import { Component } from 'react'
 // @ts-ignore // The type definitions for MapView have not been created.
 import { MapView } from 'expo'
 
-export class MapViewScreen extends Component {
-  public static navigationOptions = {
-    title: 'MapView'
+export default class MapViewScreen extends Component {
+  static navigationOptions = {
+    title: 'MapView',
   }
 
-  public render() {
+  render() {
     return (
       <MapView
         style={{ flex: 1 }}
@@ -16,7 +16,7 @@ export class MapViewScreen extends Component {
           latitude: 55.6838499,
           latitudeDelta: 0.1,
           longitude: 12.5630238,
-          longitudeDelta: 0.1
+          longitudeDelta: 0.1,
         }}
       />
     )

@@ -3,62 +3,50 @@ import { Platform } from 'react-native'
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation'
 
 import TabBarIcon from '../components/TabBarIcon'
-import LinksScreen from '../screens/LinksScreen'
-import SettingsScreen from '../screens/SettingsScreen'
-import PostsScreen from '../screens/PostsScreen'
-import MainScreen from '../screens/MainScreen'
 
-import { AccelerometerScreen } from '../screens/AccelerometerScreen'
-import { AmplitudeScreen } from '../screens/AmplitudeScreen'
-import { AssetScreen } from '../screens/AssetScreen'
-import { AudioScreen } from '../screens/AudioScreen'
-import { BlurView1Screen } from '../screens/BlurView1Screen'
-import { BlurView2Screen } from '../screens/BlurView2Screen'
-import { BrightnessScreen } from '../screens/BrightnessScreen'
-import { CameraScreen } from '../screens/CameraScreen'
-import { ConstantsScreen } from '../screens/ConstantsScreen'
-import { FacebookScreen } from '../screens/FacebookScreen'
-import { FontScreen } from '../screens/FontScreen'
-import { GyroscopeScreen } from '../screens/GyroscopeScreen'
-import { LinearGradientScreen } from '../screens/LinearGradientScreen'
-import { LocalAuthenticationScreen } from '../screens/LocalAuthenticationScreen'
-import { ManifestScreen } from '../screens/ManifestScreen'
-import { MapViewScreen } from '../screens/MapViewScreen'
-import { PlatformScreen } from '../screens/PlatformScreen'
-import { SvgScreen } from '../screens/SvgScreen'
-import { SystemFontsScreen } from '../screens/SystemFontsScreen'
-import { VectorIconsScreen } from '../screens/VectorIconsScreen'
+import LinksScreen from '../screens/LinksScreen'
+import RouteConfig from './RouteConfig'
+import PostsScreen from '../screens/PostsScreen'
+import SettingsScreen from '../screens/SettingsScreen'
 
 interface Props {
   focused: boolean
 }
 
 const MainStack = createStackNavigator(
-  {
-    Main: MainScreen,
+  RouteConfig,
+  // {
+  //   Main: MainScreen,
 
-    // Other Routes
-    Accelerometer: { screen: AccelerometerScreen },
-    Amplitude: { screen: AmplitudeScreen },
-    Asset: { screen: AssetScreen },
-    Audio: { screen: AudioScreen },
-    BlurView1: { screen: BlurView1Screen },
-    BlurView2: { screen: BlurView2Screen },
-    Brightness: { screen: BrightnessScreen },
-    Camera: { screen: CameraScreen },
-    Constants: { screen: ConstantsScreen },
-    Facebook: { screen: FacebookScreen },
-    Font: { screen: FontScreen },
-    Gyroscope: { screen: GyroscopeScreen },
-    LinearGradient: { screen: LinearGradientScreen },
-    LocalAuthentication: { screen: LocalAuthenticationScreen },
-    Manifest: { screen: ManifestScreen },
-    MapView: { screen: MapViewScreen },
-    Platform: { screen: PlatformScreen },
-    Svg: { screen: SvgScreen },
-    SystemFonts: { screen: SystemFontsScreen },
-    VectorIcons: { screen: VectorIconsScreen },
-  },
+  //   // Other Routes
+  //   Accelerometer: AccelerometerScreen,
+  //   Amplitude: AmplitudeScreen,
+  //   Asset: AssetScreen,
+  //   Audio: AudioScreen,
+  //   BlurView1: BlurView1Screen,
+  //   BlurView2: BlurView2Screen,
+  //   Brightness: BrightnessScreen,
+  //   Camera: CameraScreen,
+  //   Constants: ConstantsScreen,
+  //   Facebook: FacebookScreen,
+  //   FirebaseAuthTest: FirebaseAuthTestScreen,
+  //   Font: FontScreen,
+  //   Github: GithubScreen,
+  //   Google: GoogleScreen,
+  //   Gyroscope: GyroscopeScreen,
+  //   Home: HomeScreen,
+  //   LinearGradient: LinearGradientScreen,
+  //   Links: LinksScreen,
+  //   LocalAuthentication: LocalAuthenticationScreen,
+  //   Manifest: ManifestScreen,
+  //   MapView: MapViewScreen,
+  //   Platform: PlatformScreen,
+  //   Posts: PostsScreen,
+  //   Settings: SettingsScreen,
+  //   Svg: SvgScreen,
+  //   SystemFonts: SystemFontsScreen,
+  //   VectorIcons: VectorIconsScreen,
+  // },
   {
     navigationOptions: {
       tabBarLabel: 'Main',

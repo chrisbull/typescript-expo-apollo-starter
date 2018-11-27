@@ -6,8 +6,8 @@ interface State {
   fontLoaded: boolean
 }
 
-export class FontScreen extends Component<{}, State> {
-  public static navigationOptions = {
+export default class FontScreen extends Component<{}, State> {
+  static navigationOptions = {
     title: 'Font',
   }
   constructor(props: {}, context?: any) {
@@ -20,7 +20,7 @@ export class FontScreen extends Component<{}, State> {
     this.loadFont()
   }
 
-  public render() {
+  render() {
     if (!this.state.fontLoaded) {
       return <Text>Loading font...</Text>
     }
