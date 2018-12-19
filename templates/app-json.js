@@ -1,15 +1,13 @@
-import fs from 'fs'
+// generate expo app.json
 
-import Config from './config'
-
-const AppConfig = {
-  _WARNING_: '',
+const stringToConsole = {
+  WARNING: '------------ THIS IS A GENERATED FILE ------------',
   expo: {
-    name: `${Config.APP_NAME}`,
+    name: process.env.APP_NAME,
 
     description: 'A very interesting project.',
 
-    slug: `${Config.APP_SLUG}`,
+    slug: process.env.APP_SLUG,
 
     privacy: 'public',
 
@@ -35,9 +33,9 @@ const AppConfig = {
 
     assetBundlePatterns: ['**/*'],
 
-    facebookDisplayName: `${Config.APP_NAME}`,
-    facebookAppId: `${Config.FACEBOOK_APP_ID}`,
-    facebookScheme: `${Config.FACEBOOK_APP_SCHEME}`,
+    facebookDisplayName: process.env.APP_NAME,
+    facebookAppId: process.env.FACEBOOK_APP_ID,
+    facebookScheme: process.env.FACEBOOK_APP_SCHEME,
 
     // ios: {
     //   /*
@@ -50,7 +48,7 @@ const AppConfig = {
     //     For example, host.exp.exponent, where exp.host is our domain
     //     and Expo is our app.
     //   */
-    //   bundleIdentifier: `${Config.IOS_BUNDLE_ID}`,
+    //   bundleIdentifier: process.env.IOS_BUNDLE_ID,
 
     //   /*
     //     Build number for your iOS standalone app. Must be a"STRING"
@@ -84,7 +82,7 @@ const AppConfig = {
 
     //   /*
     //     Whether your standalone iOS app supports tablet screen sizes.
-    //     Defaults to `false`.
+    //     Defaults to 'false'.
     //   */
     //   // supportsTablet: false,
 
@@ -95,7 +93,7 @@ const AppConfig = {
     //   // isTabletOnly: false,
 
     //   /*
-    //     Dictionary of arbitrary configuration to add to your standalone app's native Info.plist. Applied prior to all other Expo-specific configuration.
+    //     Dictionary of arbitrary process.envuration to add to your standalone app's native Info.plist. Applied prior to all other Expo-specific process.envuration.
 
     //     No other validation is performed, so use this at your own risk of rejection from the App Store.
     //   */
@@ -125,7 +123,7 @@ const AppConfig = {
     //   */
     //   // usesIcloudStorage: false,
 
-    //   config: {
+    //   process.env: {
     //     /*
     //       Branch (https://branch.io/) key to hook up Branch linking services.
     //     */
@@ -137,7 +135,7 @@ const AppConfig = {
     //     // },
 
     //     /*
-    //       Sets `ITSAppUsesNonExemptEncryption` in the standalone ipa's Info.plist to the given boolean value.
+    //       Sets 'ITSAppUsesNonExemptEncryption' in the standalone ipa's Info.plist to the given boolean value.
     //     */
     //     // usesNonExemptEncryption: false,
 
@@ -146,7 +144,7 @@ const AppConfig = {
 
     //       developers.google.com/maps/documentation/ios-sdk/start
     //     */
-    //     googleMapsApiKey: `${Config.GOOGLE_MAPS_IOS_API_KEY}`,
+    //     googleMapsApiKey: process.env.GOOGLE_MAPS_IOS_API_KEY,
 
     //     /*
     //       Google Sign-In iOS SDK keys for your standalone app.
@@ -154,14 +152,14 @@ const AppConfig = {
     //       developers.google.com/identity/sign-in/ios/start-integrating
     //     */
     //     googleSignIn: {
-    //       reservedClientId: `${Config.GOOGLE_SIGNIN_IOS_CLIENT_ID}`,
+    //       reservedClientId: process.env.GOOGLE_SIGNIN_IOS_CLIENT_ID,
     //     },
 
     //     /*
     //       The reserved client ID URL scheme.
     //       Can be found in GoogeService-Info.plist.
     //     */
-    //     // reservedClientId: `${Config.GOOGLE_SIGNIN_IOS_RESERVED_CLIENT_ID}`,
+    //     // reservedClientId: process.env.GOOGLE_SIGNIN_IOS_RESERVED_CLIENT_ID,
     //   },
 
     //   splash: {
@@ -199,7 +197,7 @@ const AppConfig = {
     //     Reverse DNS notation unique name for your app.
     //     For example, host.exp.exponent, where exp.host is our domain and Expo is our app.
     //   */
-    //   package: `${Config.ANDROID_BUNDLE_ID}`,
+    //   package: process.env.ANDROID_BUNDLE_ID,
 
     //   /*
     //     Version number required by Google Play.
@@ -313,7 +311,7 @@ const AppConfig = {
     //     'com.sonyericsson.home.permission.BROADCAST_BADGE',
     //   ],
 
-    //   config: {
+    //   process.env: {
     //     /*
     //       Branch (https://branch.io/) key to hook up Branch linking services.
     //     */
@@ -348,7 +346,7 @@ const AppConfig = {
     //       /*
     //         Your Google Maps Android SDK API key
     //       */
-    //       apiKey: `${Config.GOOGLE_MAPS_ANDROID_API_KEY}`,
+    //       apiKey: process.env.GOOGLE_MAPS_ANDROID_API_KEY,
     //     },
 
     //     /*
@@ -361,19 +359,19 @@ const AppConfig = {
     //         Can be found in the credentials section of the developer console
     //         or in "google-services.json"
     //       */
-    //       apiKey: `${Config.GOOGLE_SIGNIN_ANDROID_CLIENT_ID}`,
+    //       apiKey: process.env.GOOGLE_SIGNIN_ANDROID_CLIENT_ID,
 
     //       /*
-    //         The SHA-1 hash of the signing certificate used to build the apk without any separator `:`.
+    //         The SHA-1 hash of the signing certificate used to build the apk without any separator.
     //         Can be found in "google-services.json".
     //         developers.google.com/android/guides/client-auth
     //       */
-    //       certificateHash: `${Config.GOOGLE_SIGNIN_ANDROID_CERTIFICATE_HASH}`,
+    //       certificateHash: process.env.GOOGLE_SIGNIN_ANDROID_CERTIFICATE_HASH,
     //     },
     //   },
 
     //   /*
-    //     Configuration for loading and splash screen for standalone Android apps.
+    //     process.envuration for loading and splash screen for standalone Android apps.
     //   */
     //   // splash: {
     //   //   /*
@@ -403,7 +401,7 @@ const AppConfig = {
     //   // },
 
     //   /*
-    //     Configuration for setting custom intent filters in Android manifest.
+    //     process.envuration for setting custom intent filters in Android manifest.
     //     The following example demonstrates how to set up deep links. When
     //     the user taps a link matching *.myapp.io, they will be shown a
     //     dialog asking whether the link should be handled by your app or by
@@ -426,7 +424,7 @@ const AppConfig = {
     //     You may also use an intent filter to set your app as the default handler
     //     for links (without showing the user a dialog with options). To do so, you
     //     must set "autoVerify": true on the filter object below, and then
-    //     configure your server to serve a JSON file verifying that you own the
+    //     process.envure your server to serve a JSON file verifying that you own the
     //     domain. See Android's documentation for details:
 
     //     developer.android.com/training/app-links
@@ -445,13 +443,4 @@ const AppConfig = {
   },
 }
 
-AppConfig._WARNING_ = '------- WARNING THIS FILE IS AUTO GENERATED FROM generate-app-config.ts DO NOT EDIT THIS -------'
-
-const AppConfigJSON = JSON.stringify(AppConfig, null, 2)
-
-const path = 'app.json'
-
-fs.writeFile(path, AppConfigJSON, err => {
-  if (err) throw err
-  console.log(`${path} -- succesfully saved!`)
-})
+console.log(JSON.stringify(stringToConsole, null, 2))

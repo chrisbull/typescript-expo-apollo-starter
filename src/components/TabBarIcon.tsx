@@ -1,9 +1,10 @@
-import * as React from 'react'
-import Icon from '@expo/vector-icons'
+import React from 'react'
+import * as Icon from '@expo/vector-icons'
+import { ViewProps } from 'react-native'
 
 import Colors from '../constants/Colors'
 
-interface Props {
+interface Props extends ViewProps {
   focused: boolean
   name: string
 }

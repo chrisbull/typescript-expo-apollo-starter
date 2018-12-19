@@ -1,7 +1,6 @@
 {
   "defaultSeverity": "error",
   "extends": ["tslint:recommended", "tslint-config-prettier"],
-  "autoFixOnSave": true,
   "rules": {
     "member-access": false,
     "interface-name": false,
@@ -25,14 +24,5 @@
     "max-classes-per-file": false,
     "no-empty": false
   },
-  "jsRules": {
-    "prettier": true,
-    "object-literal-sort-keys": false,
-    "one-line": true,
-    "quotemark": false,
-    "semicolon": false,
-    "trailing-comma": true
-  },
-  "rulesDirectory": [],
-  "exclude": ["node_modules"]
+  "rulesDirectory": []
 }

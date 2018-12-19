@@ -1,17 +1,20 @@
 import React from 'react'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View, ViewProps } from 'react-native'
 
 const googleIcon = {
   uri:
     'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/200px-Google_%22G%22_Logo.svg.png',
 }
 
-export default class GoogleSignInButton extends React.PureComponent {
-  static defaultProps = {
-    onPress() {},
+interface Props extends ViewProps {
+  onPress: () => any
+}
+export default class GoogleSignInButton extends React.PureComponent<Props> {
+  public static defaultProps = {
+    onPress: () => {},
   }
 
-  render() {
+  public render() {
     const { children, style, ...props } = this.props
     return (
       <TouchableOpacity activeOpacity={0.6} style={StyleSheet.flatten([styles.touchable, style])} {...props}>
