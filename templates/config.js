@@ -57,5 +57,3 @@ export default Config
 `
 
 console.log(stringToConsole)
-
-export default null
